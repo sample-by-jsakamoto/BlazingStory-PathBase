@@ -46,10 +46,12 @@ app.Map("/stories", appBuilder =>
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAntiforgery();
+#pragma warning disable ASP0014 // Suppress ASP0014 because this code intentionally mounts multiple Blazor application entry points.
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapRazorComponents<DefaultApp>()
         .AddInteractiveServerRenderMode();
 });
+#pragma warning restore ASP0014
 
 app.Run();
