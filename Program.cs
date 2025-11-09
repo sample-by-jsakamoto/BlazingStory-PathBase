@@ -26,8 +26,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Map BlazingStory MCP endpoints on the root URL, as "/mcp/blazingstory".
 app.MapBlazingStoryMcp();
 
+// Map the BlazingStory server component to the "/stories" path.
 app.Map("/stories", appBuilder =>
 {
     appBuilder.UseStaticFiles();
@@ -40,6 +42,7 @@ app.Map("/stories", appBuilder =>
     });
 });
 
+// Map the default app on the root URL.
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAntiforgery();
